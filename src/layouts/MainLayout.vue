@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="hHh lpR lFf">
     <q-header elevated>
       <q-toolbar>
         <q-btn
@@ -12,10 +12,13 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          <div class="absolute-center">
+            <q-icon name="savings" />
+            Moneyballs
+          </div>
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div>v{{ appVersion }}</div>
       </q-toolbar>
     </q-header>
 
@@ -48,6 +51,7 @@
 <script setup>
 import { ref } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
+import { appVersion } from 'src/config/app.js'
 
 const linksList = [
   {
