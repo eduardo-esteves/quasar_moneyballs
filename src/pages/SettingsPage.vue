@@ -4,7 +4,6 @@
 
 <template>
   <q-page class="flex flex-center">
-    Entries
+    Settings
   </q-page>
 </template>
-
