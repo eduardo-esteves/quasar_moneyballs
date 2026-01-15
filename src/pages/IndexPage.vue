@@ -23,7 +23,16 @@ const entries = ref([
     name: 'Unknown',
     amount: 0
   },
-]);
+])
+
+function formatAmount(amount) {
+  const amountFormated = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(amount)
+
+  return amountFormated
+}
 </script>
 
 <template>
@@ -43,7 +52,7 @@ const entries = ref([
           </q-item-section>
 
           <q-item-section side>
-            {{ amount.toFixed(2) }}
+            {{ formatAmount(amount) }}
           </q-item-section>
         </q-item>
       </q-list>
