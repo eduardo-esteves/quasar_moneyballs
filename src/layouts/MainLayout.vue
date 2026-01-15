@@ -27,6 +27,7 @@
       show-if-above
       bordered
       class="bg-primary"
+      :breakpoint="900"
     >
       <q-list>
         <q-item-label
