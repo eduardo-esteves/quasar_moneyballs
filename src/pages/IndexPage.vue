@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import { useFormatAmount } from '../composables/useFormatAmount'
 
 
 const entries = ref([
@@ -24,15 +25,6 @@ const entries = ref([
     amount: 0
   },
 ])
-
-function formatAmount(amount) {
-  const amountFormated = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  }).format(amount)
-
-  return amountFormated
-}
 </script>
 
 <template>
@@ -52,7 +44,7 @@ function formatAmount(amount) {
           </q-item-section>
 
           <q-item-section side>
-            {{ formatAmount(amount) }}
+            {{ useFormatAmount(amount) }}
           </q-item-section>
         </q-item>
       </q-list>
