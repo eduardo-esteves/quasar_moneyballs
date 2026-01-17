@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 import { useFormatAmount } from '../composables/useFormatAmount'
+import { useAmountClass } from '../composables/useAmountClass'
 
 
 const entries = ref([
@@ -39,22 +40,11 @@ const entries = ref([
         :key="id"
       >
         <q-item>
-          <q-item-section
-            :class="{
-              'text-positive': amount > 0,
-              'text-negative': amount < 0
-            }"
-          >
+          <q-item-section :class="useAmountClass(amount)">
             {{ name }}
           </q-item-section>
 
-          <q-item-section
-            side
-            :class="{
-              'text-positive': amount > 0,
-              'text-negative': amount < 0
-            }"
-          >
+          <q-item-section side :class="useAmountClass(amount)">
             {{ useFormatAmount(amount) }}
           </q-item-section>
         </q-item>
