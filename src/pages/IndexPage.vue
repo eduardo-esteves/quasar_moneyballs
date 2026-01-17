@@ -40,11 +40,18 @@ const entries = ref([
         :key="id"
       >
         <q-item>
-          <q-item-section :class="useAmountClass(amount)">
+          <q-item-section
+            class="text-weight-bold"
+            :class="useAmountClass(amount)"
+          >
             {{ name }}
           </q-item-section>
 
-          <q-item-section side :class="useAmountClass(amount)">
+          <q-item-section
+            side
+            class="text-weight-bold"
+            :class="useAmountClass(amount)"
+          >
             {{ useFormatAmount(amount) }}
           </q-item-section>
         </q-item>
