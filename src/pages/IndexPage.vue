@@ -39,11 +39,22 @@ const entries = ref([
         :key="id"
       >
         <q-item>
-          <q-item-section>
+          <q-item-section
+            :class="{
+              'text-positive': amount > 0,
+              'text-negative': amount < 0
+            }"
+          >
             {{ name }}
           </q-item-section>
 
-          <q-item-section side>
+          <q-item-section
+            side
+            :class="{
+              'text-positive': amount > 0,
+              'text-negative': amount < 0
+            }"
+          >
             {{ useFormatAmount(amount) }}
           </q-item-section>
         </q-item>
