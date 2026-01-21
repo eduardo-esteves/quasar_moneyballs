@@ -41,7 +41,6 @@ const entries = ref([
       >
         <q-item>
           <q-item-section
-            class="text-weight-bold"
             :class="useAmountClass(amount)"
           >
             {{ name }}
@@ -49,7 +48,6 @@ const entries = ref([
 
           <q-item-section
             side
-            class="text-weight-bold"
             :class="useAmountClass(amount)"
           >
             {{ useFormatAmount(amount) }}
