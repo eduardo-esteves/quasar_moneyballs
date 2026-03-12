@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import { useFormatAmount } from '../composables/useFormatAmount'
 import { useAmountClass } from '../composables/useAmountClass'
 
+const name = ref('')
+const amount = ref(null)
 
 const entries = ref([
   {
@@ -55,6 +57,39 @@ const entries = ref([
         </q-item>
       </q-list>
   </div>
+
+    <q-footer>
+      <div class="row q-pa-sm q-col-gutter-sm">
+        <div class="col">
+          <q-input
+            standout
+            v-model="name"
+            label="Name"
+            bg-color="white"
+            input-class="text-grey-10"
+          />
+        </div>
+        <div class="col">
+          <q-input
+            standout
+            v-model="amount"
+            type="number"
+            label="Amount"
+            bg-color="white"
+            step="0.01"
+            input-class="text-grey-10 text-right"
+          />
+        </div>
+        <div class="col col-auto flex flex-center">
+          <q-btn round color="primary" icon="add" />
+        </div>
+      </div>
+    </q-footer>
+
   </q-page>
 </template>
+
+<style scoped>
+
+</style>
 
