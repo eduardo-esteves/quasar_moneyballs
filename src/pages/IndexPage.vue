@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useFormatAmount } from '../composables/useFormatAmount'
 import { useAmountClass } from '../composables/useAmountClass'
 
@@ -28,6 +28,11 @@ const entries = ref([
     amount: 0
   },
 ])
+
+/* Balance calculation could be done like this:*/
+const balance = computed(() => {
+  return entries.value.reduce((total, entry) => total + entry.amount, 0)
+})
 </script>
 
 <template>
@@ -61,7 +66,7 @@ const entries = ref([
     <q-footer class="bg-transparent">
       <div class="row q-px-xs q-py-sm q-mb-sm items-center shadow-up-3">
         <div class="col text-grey-7 text-h6">Balance:</div>
-        <div class="col text-grey-7 text-h6 text-right">+ $3,999.00</div>
+        <div class="col text-h6 text-right" :class="useAmountClass(balance)">{{ useFormatAmount(balance) }}</div>
       </div>
       <div class="row q-px-xs q-pb-sm q-col-gutter-sm bg-primary">
         <div class="col">
